@@ -31,6 +31,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import org.jivesoftware.openfire.XMPPServer;
@@ -167,7 +168,7 @@ public class Group implements Cacheable, Externalizable {
      * @param name the name for the group.
      */
     public void setName(String name) {
-        if (name == this.name || (name != null && name.equals(this.name)) || provider.isReadOnly())
+        if (Objects.equals(name, this.name) || provider.isReadOnly())
         {
             // Do nothing
             return;
@@ -211,7 +212,7 @@ public class Group implements Cacheable, Externalizable {
      * @param description the description of the group.
      */
     public void setDescription(String description) {
-        if (description == this.description || (description != null && description.equals(this.description)) ||
+        if (Objects.equals(description, this.description) ||
                 provider.isReadOnly()) {
             // Do nothing
             return;

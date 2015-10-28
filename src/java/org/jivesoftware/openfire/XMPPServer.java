@@ -537,7 +537,7 @@ public class XMPPServer {
             catch (Exception e) {
                 e.printStackTrace();
                 // Remove the failed initialized module
-                this.modules.remove(module.getClass());
+                this.modules.remove(module.getClass().toString());
                 if (isInitialized) {
                     module.stop();
                     module.destroy();
